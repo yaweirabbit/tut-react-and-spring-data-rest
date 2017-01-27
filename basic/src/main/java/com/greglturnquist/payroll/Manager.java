@@ -15,24 +15,31 @@
  */
 package com.greglturnquist.payroll;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * @author Greg Turnquist
  */
 // tag::code[]
-@Controller
-public class HomeController {
+@Data
+@Entity
+public class Manager {
 
-	@RequestMapping(value = "/")
-	public String index() {
-		return "index";
+	private @Id @GeneratedValue Long id;
+	private String firstName;
+	private String lastName;
+	private String description;
+
+	private Manager() {}
+
+	public Manager(String firstName, String lastName, String description) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.description = description;
 	}
-
 }
 // end::code[]

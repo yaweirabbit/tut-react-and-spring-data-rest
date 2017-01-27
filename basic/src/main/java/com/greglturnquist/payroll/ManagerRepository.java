@@ -15,24 +15,13 @@
  */
 package com.greglturnquist.payroll;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author Greg Turnquist
  */
 // tag::code[]
-@Controller
-public class HomeController {
-
-	@RequestMapping(value = "/")
-	public String index() {
-		return "index";
-	}
+public interface ManagerRepository extends CrudRepository<Manager, Long> {
 
 }
 // end::code[]
